@@ -1,3 +1,4 @@
+#board design
 def print_board(board):
   for row in board:
       for cell in row:
@@ -5,23 +6,24 @@ def print_board(board):
       print("\n" + "-" * 9)
 
 def check_winner(board, player):
-  # Check rows
+  #check rows
   for row in board:
       if row[0] == row[1] == row[2] == player:
           return True
 
-  # Check columns
+  #check columns
   for col in range(3):
       if board[0][col] == board[1][col] == board[2][col] == player:
           return True
 
-  # Check diagonals
+  #check diagonals
   if (board[0][0] == board[1][1] == board[2][2] == player) or \
      (board[0][2] == board[1][1] == board[2][0] == player):
       return True
 
   return False
 
+#check if board is full so game is tie
 def is_board_full(board):
   for row in board:
       for cell in row:
@@ -36,6 +38,7 @@ def main():
   print("Welcome to Tic Tac Toe!")
   print_board(board)
 
+  #player choice of game
   while True:
       row = int(input(f"Player {player}, enter the row (0, 1, 2): "))
       col = int(input(f"Player {player}, enter the column (0, 1, 2): "))
